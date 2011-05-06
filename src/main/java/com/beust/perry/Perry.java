@@ -178,22 +178,23 @@ public class Perry
 
   }};
 
-  void cleanEnglish() throws IOException {
+  private void cleanStrings(Map<String, String> strings, String dir, String outDir)
+      throws IOException {
+    FileVisitor visitor = new FileVisitor(strings, outDir);
     if (m_singleFile) {
-      new FileVisitor(ENGLISH_STRINGS, OUT_ENGLISH_DIR).visit(new File(ENGLISH_DIR + "a.rtf"));
+      visitor.visit(new File(dir + "a.rtf"));
     }
     else {
-      eachFileRecurse(ENGLISH_DIR, new FileVisitor(ENGLISH_STRINGS, OUT_ENGLISH_DIR));
+      eachFileRecurse(dir, visitor);
     }
   }
 
+  void cleanEnglish() throws IOException {
+    cleanStrings(ENGLISH_STRINGS, ENGLISH_DIR, OUT_ENGLISH_DIR);
+  }
+
   void cleanGerman() throws IOException {
-    if (m_singleFile) {
-      new FileVisitor(GERMAN_STRINGS, OUT_GERMAN_DIR).visit(new File(GERMAN_DIR + "a.rtf"));
-    }
-    else {
-      eachFileRecurse(ENGLISH_DIR, new FileVisitor(ENGLISH_STRINGS, OUT_ENGLISH_DIR));
-    }
+    cleanStrings(GERMAN_STRINGS, GERMAN_DIR, OUT_GERMAN_DIR);
   }
 
   private void eachFileRecurse(String directory, FileVisitor visitor) throws IOException {
