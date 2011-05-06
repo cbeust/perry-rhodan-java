@@ -23,14 +23,21 @@ public class FileVisitor {
     p("Replacing in file:" + file + " outDir:" + m_outDir);
 
     String fileText = readFile(file);
-    for (Map.Entry<String, String> s : m_strings.entrySet()) {
-      fileText = Perry.replaceAllWithCase(fileText, s.getKey(), s.getValue());
-    }
+    fileText = performReplacement(fileText);
     File outFile = new File(m_outDir, file.getName());
     outFile.delete();
 
     p("Writing " + outFile.getAbsolutePath());
     writeFile(outFile, fileText);
+  }
+
+  /* for testing */ String performReplacement(String fileText) {
+    String result = fileText;
+    for (Map.Entry<String, String> s : m_strings.entrySet()) {
+      result = Perry.replaceAllWithCase(result, s.getKey(), s.getValue());
+    }
+
+    return result;
   }
 
   private void writeFile(File outFile, String text) throws IOException {

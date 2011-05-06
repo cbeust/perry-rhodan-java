@@ -40,9 +40,7 @@ public class PerryTest {
     }};
 
     String newText = "Once, he/it had tried it";
-    for (Map.Entry<String, String> s : strings.entrySet()) {
-      newText = Perry.replaceAllWithCase(newText, s.getKey(), s.getValue());
-    }
+    newText = new FileVisitor(strings, null /* ignored */).performReplacement(newText);
     Assert.assertEquals(newText, "Once, he had tried it");
 
   }
