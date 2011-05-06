@@ -4,6 +4,22 @@
   <artifactId>com.beust.perry</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-jar-plugin</artifactId>
+  			<version>2.3.1</version>
+  			<configuration>
+  			  <archive>
+  			    <manifest>
+  			      <mainClass>com.beust.perry.Perry</mainClass>
+  			    </manifest>
+  			  </archive>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
   <dependencies>
     <dependency>
       <groupId>org.testng</groupId>
