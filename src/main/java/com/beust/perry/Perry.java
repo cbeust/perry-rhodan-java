@@ -251,6 +251,7 @@ public class Perry
     Perry p = new Perry();
 //    p.test();
 //    p.cleanGerman();
-    p.cleanEnglish();
+//    p.cleanEnglish();
+    System.out.println("This is the main class, need to handle command line switches");
   }
 }
