@@ -12,16 +12,16 @@ public class Perry
 {
 
   // Windows
-  private static final String TOP_DIR_WINDOWS = "/Users/Cedric/Documents/perry-rhodan/";
+  private static final String TOP_DIR_WINDOWS = "c:/Users/Cedric/Documents/perry-rhodan/";
   // Mac
   private static final String TOP_DIR_MAC = "/Users/cbeust/Documents/perry-rhodan/";
 
-  private static final String TOP_DIR = TOP_DIR_MAC;
+  private static final String TOP_DIR = TOP_DIR_WINDOWS;
 
   private static final String GERMAN_DIR = TOP_DIR + "ge2/";
-  private static final String OUT_GERMAN_DIR = TOP_DIR + "ge2-clean/";
-  private static final String ENGLISH_DIR = TOP_DIR + "en2/";
-  private static final String OUT_ENGLISH_DIR = TOP_DIR + "en2-clean/";
+  private static final String OUT_GERMAN_DIR = TOP_DIR + "ge-clean/";
+  private static final String ENGLISH_DIR = TOP_DIR + "en/";
+  private static final String OUT_ENGLISH_DIR = TOP_DIR + "en-clean/";
 
   private boolean debug = false;
   private boolean m_singleFile = false;
@@ -85,8 +85,7 @@ public class Perry
     put("a moment once", "hold on");
     put("amounted", "counted");
     put("antigravschacht", "antigrav shaft");
-    put("area-harbor", "space port");
-    put("area-ship", "spaceship");
+    put("area", "space");
     put("artgenossen", "compatriot");
     put("attendants sie", "wait");
     put("attendant", "wait");
@@ -101,6 +100,8 @@ public class Perry
     put("cell-assets-fool", "cell activator");
     put("cell-assets-gate", "cell activator");
     put("cell-assets-goal", "cell activator");
+    put("asset gate", "activator");
+    put("assets gate", "activator");
     put("clear become", "figure out"); // klarwerde
     put("drive around", "turn around");
     put("drives around", "turns around");
@@ -116,7 +117,6 @@ public class Perry
     put("free dealer", "Free Trader");
     put("gucky", "Pucky");
     put("heavily", "hardly");
-    put("hyper-area", "hyperspace");
     put("it gives", "there is");
     put("it gave", "there was");
     put("Galaktiker", "Galactics");
@@ -136,7 +136,6 @@ public class Perry
     put("most upper", "supreme");
     put("nature", "creature");
     put("needed not", "didn't have");
-    put("opposite", "against");
     put("orientation", "detection");
     put("Pedokr=C3=A4fte", "Pedopower");
     put("reputation", "shout");
@@ -172,9 +171,9 @@ public class Perry
     put("you you", "you");
     put("still another", "neither a");
 
-    put("ischen", "ic");
-    put("ische", "ic");
-    put("isch", "ic");
+//    put("ischen", "ic");
+//    put("ische", "ic");
+//    put("isch", "ic");
 
   }};
 
@@ -199,6 +198,9 @@ public class Perry
 
   private void eachFileRecurse(String directory, FileVisitor visitor) throws IOException {
     File d = new File(directory);
+    if (! d.exists()) {
+    	throw new RuntimeException(directory + " doesn't exist");
+    }
     for (File f : d.listFiles()) {
       visitor.visit(f);
     }
@@ -251,7 +253,7 @@ public class Perry
     Perry p = new Perry();
 //    p.test();
 //    p.cleanGerman();
-//    p.cleanEnglish();
+    p.cleanEnglish();
     System.out.println("This is the main class, need to handle command line switches");
   }
 }
