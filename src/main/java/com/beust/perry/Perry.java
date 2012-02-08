@@ -68,6 +68,8 @@ public class Perry
     put("she/they", "s_he");
     put("them/her", "t_hem");
     put("you/they", "t_hey");
+    put("your/their", "t_heir");
+    put("them/you", "t_hem");
 
     put("h_er", "her");
     put("h_e", "he");
@@ -133,6 +135,7 @@ public class Perry
     put("marsianische", "Martian");
     put("medo-roboter", "medo robot");
     put("mighty-ness-concentration", "sphere of influence");
+    put("pubs group", "globular cluster");
     put("most upper", "supreme");
     put("nature", "creature");
     put("needed not", "didn't have");
@@ -170,7 +173,13 @@ public class Perry
     put("whether", "maybe");
     put("you you", "you");
     put("still another", "neither a");
-
+    put("until on", "except");
+    put("ready-ron", "Paratron");
+    put(" ad ", " display ");
+    put(" ads ", " displays ");
+    put("in agreement", "alright");
+    put("terranische", "Terran");
+    put("Linguiden", "Linguide");
 //    put("ischen", "ic");
 //    put("ische", "ic");
 //    put("isch", "ic");
