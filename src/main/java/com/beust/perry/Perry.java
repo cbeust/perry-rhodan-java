@@ -180,6 +180,7 @@ public class Perry
     put("in agreement", "alright");
     put("terranische", "Terran");
     put("Linguiden", "Linguide");
+    put("shall?", "mean?");
 //    put("ischen", "ic");
 //    put("ische", "ic");
 //    put("isch", "ic");
